@@ -1,0 +1,16 @@
+input[disabled] {
+    background-color: #ccf;
+    color: #333;
+}
+textarea[disabled] {
+    background-color: #ccf;
+    color: #333;
+}
+select[disabled] {
+    background-color: #ccf;
+    color: #333;
+}
+.btn {
+    width: 10em;
+    max-width: 300px;
+}
