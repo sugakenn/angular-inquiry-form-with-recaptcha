@@ -1,5 +1,9 @@
 # angular-inquiry-form-with-recaptcha
+
+日本語の解説は[AngularとBootstrapで問い合わせフォーム](https://nanbu.marune205.net/2022/05/angular-bootstrap-inquiry-form-recaptcha.html?m=1)にあります
+
 Angular project of inquiry form.  optional reCAPTCHAv3.
+
 ![app sample image](https://github.com/sugakenn/angular-inquiry-form-with-recaptcha/blob/main/docs/2022y05m27d_161841484.jpg)
 
 ## Quick Start
