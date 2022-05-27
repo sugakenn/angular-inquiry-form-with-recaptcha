@@ -19,16 +19,27 @@ There are some validations for security reasons.
   - If you create a dir named "access" with htdocs, the number of transmissions will be checked for each IP address.
  You can set the number and interval in the PHP file. And You also can change dir name.
   - Invalid List Check
-    - If you create invalid.v4 file, 
+    - If you create an invalid.v4 file and include the IP address in the list, the host will not be able to send messages.
+
+      The Format is 000-000-000-000 separated by \n
+      
+      Example 10.8.100.1 :point_right: 010-008-100-001
+      
+    - invalid.v6 is IPv6 version file. In this file, compare network address. This Format is 0000-0000-0000-0000 separated by \n
+
+      Example 2001 : : 1 : a : b : c : d :point_right: 20001-0000-0000-0001 (cut the : a : b : c : d)
+    
+    - Comment out is not judged, but lines that do not follow the format are ignored as a result of collation
+      
   - XSRF Check
-  - Angular's HttpClient has XSRF validation.So, the implementation is written in PHP.
+  
+     Angular's HttpClient has XSRF validation.So, the implementation is written in PHP.
   - reCAPTCHA 
    
 
 ## reCAPTCHA
-Use [ng-recaptcha](https://github.com/DethAriel/ng-recaptcha) 
 
-You can use [Google's reCAPTCHA v3](https://www.google.com/recaptcha/about/) by using ng-recaptcha.
+You can use [Google's reCAPTCHA v3](https://www.google.com/recaptcha/about/) by using [ng-recaptcha](https://github.com/DethAriel/ng-recaptcha) 
 
 You can use it by getting two passwords from Google and adding them to your code.
 
