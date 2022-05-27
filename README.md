@@ -16,16 +16,16 @@ Use PHP for the backend.Basically, the behavior of this code is just to save the
 There are some validations for security reasons.
 
 - Remote Address Check
-
- - If you create a dir named "access" with htdocs, the number of transmissions will be checked for each IP address.
+  - If you create a dir named "access" with htdocs, the number of transmissions will be checked for each IP address.
  You can set the number and interval in the PHP file. And You also can change dir name.
+  - Invalid List Check
+    - If you create invalid.v4 file, 
+  - XSRF Check
+  - Angular's HttpClient has XSRF validation.So, the implementation is written in PHP.
+  - reCAPTCHA 
+   
 
-- XSRF Check
-
-- Angular's HttpClient has XSRF validation.So, the implementation is written in PHP.
-
-- reCAPTCHA
-
+## reCAPTCHA
 Use [ng-recaptcha](https://github.com/DethAriel/ng-recaptcha) 
 
 You can use [Google's reCAPTCHA v3](https://www.google.com/recaptcha/about/) by using ng-recaptcha.
