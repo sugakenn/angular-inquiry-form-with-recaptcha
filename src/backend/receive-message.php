@@ -12,11 +12,11 @@ define('C_XSRF_HEADER_NAME','x-xsrf-token');
 //and hide from web access use .htaccess
 define('C_SPAM_MANAGE_DIR','access');
 
-//black list file
+//Invalid list file
 //in v4 192-168-001-001\n
 //in v6 2001-0000-0000-0001\n (network address)
-define('C_SPAM_BLACK_LIST_V4','black.v4');
-define('C_SPAM_BLACK_LIST_V6','black.v6');
+define('C_SPAM_INVALID_LIST_V4','invalid.v4');
+define('C_SPAM_INVALID_LIST_V6','invalid.v6');
 
 define('C_SPAM_CHECK_MINUTES_RANGE',60 * 15);
 define('C_SPAM_CHECK_LIMIT_CNT',3);
@@ -189,11 +189,11 @@ function chcekSpamSub($strConvAddress,$blnV4) {
     
     if($blnV4) {
         $strTarget = $strConvAddress;
-        $strBlackList = C_SPAM_BLACK_LIST_V4;
+        $strInvalidList = C_SPAM_INVALID_LIST_V4;
     } else {
         //In IPv6, check by network address (substr 19)
         $strTarget = substr($strConvAddress,19);
-        $strBlackList = C_SPAM_BLACK_LIST_V6;
+        $strInvalidList = C_SPAM_INVALID_LIST_V6;
     }
 
     //Do not check for spam if the dir does not exist
@@ -201,16 +201,16 @@ function chcekSpamSub($strConvAddress,$blnV4) {
         return true;
     }
 
-    //check BlackList
-    if (is_file(C_SPAM_MANAGE_DIR.'/'.$strBlackList)) {
-        $fp = @fopen(C_SPAM_MANAGE_DIR.'/'.$strBlackList,"r");
+    //check InvalidList
+    if (is_file(C_SPAM_MANAGE_DIR.'/'.$strInvalidList)) {
+        $fp = @fopen(C_SPAM_MANAGE_DIR.'/'.$strInvalidList,"r");
 
         if ($fp) {
             while(($buffer = fgets($fp)) !== false) {
                 if ($buffer == $strTarget) {
                     fclose($fp);
 
-                    //save access history for black list
+                    //save access history for Invalid list
                     if (is_file(C_SPAM_MANAGE_DIR.'/'.$strTarget)==false) {
                         //サーバー管理者以外にシェルにアクセスできる人がいない場合はchmodコマンドは不要です
                         //You don't need "chmod" if no one else has access to the shell
