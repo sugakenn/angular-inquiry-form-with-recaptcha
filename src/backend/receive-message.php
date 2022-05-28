@@ -347,9 +347,10 @@ function compareCookieWithHeader(){
 }
 
 function exitPhp($var=array(),$blnResult=true,$strMsg='') {
-    $var['result']=$blnResult;
-    $var['message']=$strMsg;
-    echo json_encode($var);
+    $ret['data']=$var;
+    $ret['result']=$blnResult;
+    $ret['message']=$strMsg;
+    echo json_encode($ret);
     exit(0);
 }
 
