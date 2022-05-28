@@ -20,7 +20,11 @@ export class DataService {
   public postData(params:any):Observable<any> {
     
     const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      headers: new HttpHeaders({ 
+        'Content-Type': 'application/json'
+      }),
+      // if debug and CORS uncomment below
+      // withCredentials: true, 
     };
 
     //check cookie
