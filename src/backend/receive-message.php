@@ -154,7 +154,9 @@ function saveMessage() {
 
         sleep(1);
     }
-
+  
+    //remove token value
+    unset($json['token']);
     if (file_put_contents(C_SAVE_DIR.'/'.$strFileName,json_encode($json))===false) {
         exitPhp(array(),false,'failed save data (write)');
     }
