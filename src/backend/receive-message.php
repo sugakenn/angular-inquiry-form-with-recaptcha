@@ -368,7 +368,7 @@ function setXsrfToken($strCookieSameSite='Strict') {
             'domain' => $_SERVER["HTTP_HOST"],
             'secure' => true,
             'httponly' => false,
-            'samesite' => $strCookieSameSite
+            'samesite' => DEBUG ? 'None' : $strCookieSameSite
         ]
     );
 }
