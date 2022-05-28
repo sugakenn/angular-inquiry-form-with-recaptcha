@@ -63,7 +63,7 @@ function checkCookie() {
     if (isset($_COOKIE[C_XSRF_COOKIE_NAME])) {
         //exist
         $var = array();
-        $var['']=false;
+        $var['first_access']=false;      
         exitPhp($var,true,'cookie exists');
     } else {
         //not exist
