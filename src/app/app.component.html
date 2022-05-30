@@ -1,22 +1,21 @@
 <div class="wrapper" style="width: 80%; margin: 0 auto; max-width:980px;">
-  <h3 class="mt-2">お問い合わせ:Inquiry Form</h3>
-  <p *ngIf="intStep==1" style="color:red">
-    入力内容を確認していただきよろしければ「確定」を押してください。<br>
+  <h3 class="mt-2" i18n="main-title">Inquiry Form</h3>
+  <p *ngIf="intStep==1" style="color:red" i18n="subtitle">
     If you would like to confirm the input contents, click "Send".
   </p>
   <form class="form" [formGroup]="form"  autocomplete="off">
     <div class="mb-3">
-      <label for="txtnicname" class="form-label">ニックネーム:Nic Name</label>
+      <label for="txtnicname" class="form-label" i18n="nic name|nicname of send user">Nic Name</label>
       <input type="text" id="txtnicname" class="form-control" formControlName="nicname" [placeholder]="intStep == 0 ? 'Nic Name' : ''" [ngClass]="!form.controls['nicname'].invalid || !form.controls['nicname'].touched ? '' : 'is-invalid'">
       <div class="invalid-feedback">PLZ check here!</div>
     </div>
     <div class="mb-3">
-      <label for="txtmail" class="form-label">メールアドレス:Mail address</label>
+      <label for="txtmail" class="form-label" i18n="@@mailaddress">Mail address</label>
       <input type="email" id="txtmail" class="form-control" formControlName="mail" [placeholder]="intStep == 0 ? 'Mail Address' : ''" [ngClass]="!form.controls['mail'].invalid || !form.controls['mail'].touched ? '' : 'is-invalid'">
       <div class="invalid-feedback">PLZ check here!</div>
     </div>
     <div class="mb-3">
-      <label for="txthp" class="form-label">Blog,WebPage(optional)</label>
+      <label for="txthp" class="form-label" i18n="hp|user's homepage address@@homepage">Blog,WebPage(optional)</label>
       <div class="input-group mb-3">
         <span class="input-group-text">https://</span>
         <input type="url" id="txthp" class="form-control" formControlName="hp" [placeholder]="intStep == 0 ? 'Your Web Site' : ''"  [ngClass]="!form.controls['hp'].invalid  ? '' : 'is-invalid'">
@@ -24,12 +23,12 @@
       </div>
     </div>
     <div class="mb-3">
-      <label for="txtsummary" class="form-label">概要:Summary</label>
+      <label for="txtsummary" class="form-label" i18n="@@summary">Summary</label>
       <input type="text" id="txtsummary" class="form-control" formControlName="summary" [placeholder]="intStep == 0 ? 'Summary' : ''" [ngClass]="!form.controls['summary'].invalid || !form.controls['summary'].touched ? '' : 'is-invalid'">
       <div class="invalid-feedback">PLZ check here!</div>
     </div>
     <div class="mb-3">
-      <label for="txtdetail" class="form-label">詳細:Detail</label>
+      <label for="txtdetail" class="form-label" i18n="@@detail">Detail</label>
       <textarea class="form-control" id="txtdetail" formControlName="detail" rows="5" [ngClass]="!form.controls['detail'].invalid || !form.controls['detail'].touched ? '' : 'is-invalid'"></textarea>
       <div class="invalid-feedback">PLZ check here!</div>
     </div>
@@ -45,8 +44,7 @@
       <button class="btn btn-primary mb-3" [disabled]="blnSend" (click)="prev();">{{strPrev}}</button>
     </div>
     <div class="col-auto">
-      <a class="btn btn-primary mb-3" href="https://www.google.com">戻る:Return</a>
+      <a class="btn btn-primary mb-3" href="https://www.google.com" i18n="@@btn-return">Return</a>
     </div>  
-  </div>
-  
+  </div>  
 </div>

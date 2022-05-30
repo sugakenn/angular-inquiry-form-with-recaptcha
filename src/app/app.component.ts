@@ -22,7 +22,7 @@ export class AppComponent implements OnInit{
 
   public form : FormGroup= this.fb.group({
     nicname:['',Validators.required],
-    mail:['',regExValidator(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/,'メールアドレスが不正です')],
+    mail:['',regExValidator(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/,$localize`invalid mail address`)],
     hp:[''],
     summary:['',Validators.required],
     detail:['',Validators.required]
@@ -33,7 +33,6 @@ export class AppComponent implements OnInit{
   public blnSend = false;
 
   ngOnInit(): void {
-    
     setTimeout(()=>{this.setButton()});      
   }
 
@@ -82,7 +81,7 @@ export class AppComponent implements OnInit{
           if (v['result']==true) {
             //クリア
             this.intStep=0;
-            this.clear(['データを送信しました。','Data has been sent.']);
+            this.clear([$localize`Data has been sent.`]);
             this.form.disable();
           } else {
             this.blnSend = false;
@@ -92,13 +91,12 @@ export class AppComponent implements OnInit{
         } else {
           this.blnSend = false;
           this.messages=[];
-          this.messages.push('その他のエラーが発生しました');
-          this.messages.push('Other errors have occurred');
+          this.messages.push($localize`Other errors have occurred`);
         }
       });
 
       /***** if necessary CAPTCHA *********************** */
-      /*  
+      /*
       let unsub = this.cap.execute(strActionName).pipe(
         concatMap((v:string)=>{
           params['token']=v;
@@ -113,7 +111,7 @@ export class AppComponent implements OnInit{
           if (v['result']==true) {
             //クリア
             this.intStep=0;
-            this.clear(['データを送信しました。','Data has been sent.']);
+            this.clear([$localize`Data has been sent.`]);
             this.form.disable();
           } else {
             this.blnSend = false;
@@ -123,8 +121,7 @@ export class AppComponent implements OnInit{
         } else {
           this.blnSend = false;
           this.messages=[];
-          this.messages.push('その他のエラーが発生しました');
-          this.messages.push('Other errors have occurred');
+          this.messages.push($localize`Other errors have occurred`);
         }
         unsub.unsubscribe();
       });
@@ -140,7 +137,7 @@ export class AppComponent implements OnInit{
   public prev():void {
     switch(this.intStep) {
     case 0:
-      this.clear(['クリアしました','Cleared']);
+      this.clear([$localize`Cleared`]);
       break;
     case 1:
       this.intStep=0;
@@ -155,12 +152,12 @@ export class AppComponent implements OnInit{
   public setButton():void {
     switch(this.intStep) {
     case 0:
-      this.strNext='確認へ:Next';
-      this.strPrev='クリア:Clear';
+      this.strNext=$localize`Next`;
+      this.strPrev=$localize`Clear`;
       break;
     case 1:
-      this.strNext='確定:Send';
-      this.strPrev='修正:Cancel';
+      this.strNext=$localize`Send`;
+      this.strPrev=$localize`Cancel`;
       break;
     default:
 

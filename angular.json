@@ -10,6 +10,12 @@
           "strict": true
         }
       },
+      "i18n":{
+        "sourceLocale": "en-US",
+        "locales": {
+          "ja": "src/locale/messages.ja.xlf"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -61,6 +67,10 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "ja": {
+              "localize":["ja"],
+              "optimization": true
             }
           },
           "defaultConfiguration": "production"
@@ -73,6 +83,9 @@
             },
             "development": {
               "browserTarget": "inquiry-form:build:development"
+            },
+            "ja": {
+              "browserTarget": "inquiry-form:build:ja"
             }
           },
           "defaultConfiguration": "development"
