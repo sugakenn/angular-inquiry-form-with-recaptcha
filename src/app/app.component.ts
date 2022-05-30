@@ -65,7 +65,7 @@ export class AppComponent implements OnInit{
       //送信
       this.blnSend = true;
      
-      let strActionName='submit';
+      //let strActionName='submit'; // if necessary CAPTCHA
 
       let params = {
         nicname: this.form.controls['nicname'].value,

@@ -350,7 +350,7 @@ function exitPhp($var=array(),$blnResult=true,$strMsg='') {
     $ret['data']=$var;
     $ret['result']=$blnResult;
     $ret['message']=$strMsg;
-    echo json_encode($ret);
+    echo json_encode($ret);//
     exit(0);
 }
 
