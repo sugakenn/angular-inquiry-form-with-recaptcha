@@ -7,13 +7,22 @@ Angular project of inquiry form.  optional reCAPTCHAv3.
 ![app sample image](https://github.com/sugakenn/angular-inquiry-form-with-recaptcha/blob/main/docs/2022y05m27d_161841484.jpg)
 
 ## Quick Start
-### 1.[copy all files from dist/inquiry-form to htdocs(if you use apache server)](dist/inquiry-form)
+### 1.[copy folder from dist/inquiry-form/en-US(or ja) to htdocs(if you use apache server)](dist/inquiry-form)
 ### 2.[copy receive-message.php from src/backend/ to htdocs](src/backend/)
-### 3.When someone accesses index.html and sends a message, the message is stored in htdocs/message dir.
+### 3.When someone accesses /en-US(or ja)/index.html and sends a message, the message is stored in htdocs/message dir.
 
 ## Angular Project
 ### These codes are Angular project.
 
+#### compile option
+ - en-US,ja build
+   
+   ng build --configuration="production" --localize --base-href=../
+ - ja build
+ 
+   ng build --configuration="ja" --localize --base-href=../
+ - normal build is en-US build
+ 
 ## Back end
 Use PHP for the backend.Basically, the behavior of this code is just to save the POSTed JSON data as it is.
 
