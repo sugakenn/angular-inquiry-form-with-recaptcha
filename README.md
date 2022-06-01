@@ -8,7 +8,7 @@ Angular project of inquiry form.  optional reCAPTCHAv3.
 
 ## Quick Start
 ### 1.[copy folder from dist/inquiry-form/en-US(or ja) to htdocs(if you use apache server)](dist/inquiry-form)
-### 2.[copy receive-message.php from src/backend/ to htdocs](src/backend/)
+### 2.[copy receive-message.php from src/backend/ to same dir](src/backend/)
 ### 3.When someone accesses /en-US(or ja)/index.html and sends a message, the message is stored in htdocs/message dir.
 
 ## Angular Project
