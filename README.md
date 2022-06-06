@@ -26,6 +26,8 @@ Angular project of inquiry form.  optional reCAPTCHAv3.
 ## Back end
 Use PHP for the backend.Basically, the behavior of this code is just to save the POSTed JSON data as it is.
 
+Since it is developed in the environment where php_mbstring.dll is set, Please set php_mbstring.dll when using. 
+
 There are some validations for security reasons.
 
 - Remote Address Check
