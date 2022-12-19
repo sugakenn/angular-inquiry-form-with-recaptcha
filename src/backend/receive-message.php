@@ -305,18 +305,18 @@ function convertAddressV6($str) {
     
     //reverse shortning 
     if (0 < strpos($str,"::")) {
-        $intColonCnt = substr_count($_SERVER['REMOTE_ADDR'], ':');
-        if ($intColCnt < 7) {
-            $str = str_replace("::",str_repeat(":",7-$intColCnt),$str);
+        $intColonCnt = substr_count($str, ':');
+        if ($intColonCnt < 7) {
+            $str = str_replace("::",str_repeat(":",7-$intColonCnt+2),$str);
         }
     }
 
     $arr = explode(":",$str);
-    
+
     $strRet = "";
     for ($i = 0; $i < 8; $i++) {
         if ($i !=0) {
-            $srRet.="-";
+            $strRet.="-";
         }
 
         //padding zero. format: 0000-0000-0000-0000-0000-0000-0000-0000
